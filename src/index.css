@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-sand text-ink font-sans;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Hide native arrows on number inputs in webkit */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Focus rings — refined gold */
+  *:focus-visible {
+    outline: 2px solid #B68A35;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container-wrap {
+    @apply mx-auto w-full max-w-wrap px-5 md:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-sand hover:bg-black shadow-soft;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold text-white hover:bg-gold-deep shadow-gold;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-ink border border-line hover:border-ink/40 hover:bg-white;
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-emerald-brand text-white hover:bg-emerald-deep shadow-soft;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:border-gold focus:ring-0 focus:outline-none transition;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-semibold text-ink-soft;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-line shadow-soft overflow-hidden;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-sand px-3 py-1 text-xs font-semibold text-ink-soft border border-line;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-extrabold text-ink;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-bold tracking-[0.2em] text-gold-deep uppercase;
+  }
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F3EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8cfb4;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B68A35;
+}
